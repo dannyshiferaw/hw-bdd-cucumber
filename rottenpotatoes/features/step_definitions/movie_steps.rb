@@ -34,10 +34,10 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
     steps %Q{
       When I #{action} "ratings[#{rating.strip}]"
     }
-  end 
+  end
 end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  page.all('table#movies tr').count.should == 11
 end
